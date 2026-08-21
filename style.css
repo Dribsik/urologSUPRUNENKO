@@ -4,11 +4,16 @@
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     font-family: Arial, Helvetica, sans-serif;
     color: #333;
     background: #fff;
     line-height: 1.6;
+    transition: background 0.3s ease, color 0.3s ease;
 }
 
 .container {
@@ -17,12 +22,16 @@ body {
     margin: auto;
 }
 
-/* HEADER */
+
+/* =====================================================
+   HEADER
+===================================================== */
 
 header {
     background: #fff;
     border-bottom: 1px solid #e5e5e5;
     box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    transition: 0.3s;
 }
 
 .header {
@@ -49,6 +58,7 @@ header {
     align-items: center;
     justify-content: center;
     font-size: 28px;
+    flex-shrink: 0;
 }
 
 .logo h1 {
@@ -62,17 +72,26 @@ header {
     font-size: 14px;
 }
 
+
+/* =====================================================
+   MENU
+===================================================== */
+
 nav {
     display: flex;
+    align-items: center;
     gap: 5px;
+    flex-wrap: wrap;
+    justify-content: flex-end;
 }
 
 nav a {
     text-decoration: none;
     color: #444;
     padding: 12px 16px;
-    border-radius: 4px;
+    border-radius: 5px;
     transition: 0.25s;
+    white-space: nowrap;
 }
 
 nav a:hover,
@@ -81,11 +100,94 @@ nav a.active {
     color: white;
 }
 
-/* HERO */
+
+/* =====================================================
+   AI BUTTON
+===================================================== */
+
+nav a.ai-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 42px;
+    padding: 0 15px;
+    background: #eaf7fd;
+    color: #0877b5;
+    border: 1px solid #b9e3f4;
+    font-weight: 600;
+}
+
+nav a.ai-button:hover {
+    background: #087fc1;
+    color: white;
+}
+
+
+/* =====================================================
+   APPOINTMENT BUTTON
+===================================================== */
+
+nav a.appointment-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 42px;
+    padding: 0 15px;
+    background: #087fc1;
+    color: white;
+    font-weight: 600;
+}
+
+nav a.appointment-button:hover {
+    background: #05679d;
+}
+
+
+/* =====================================================
+   THEME BUTTON
+===================================================== */
+
+.theme-toggle {
+    width: 42px;
+    height: 42px;
+
+    border: 1px solid #b9e3f4;
+    border-radius: 50%;
+
+    background: #eaf7fd;
+    color: #0877b5;
+
+    font-size: 20px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    cursor: pointer;
+
+    transition:
+        background 0.25s,
+        color 0.25s,
+        transform 0.25s;
+
+    flex-shrink: 0;
+}
+
+.theme-toggle:hover {
+    background: #087fc1;
+    color: white;
+    transform: rotate(15deg);
+}
+
+
+/* =====================================================
+   HERO
+===================================================== */
 
 .hero {
     background: linear-gradient(120deg, #eaf7fd, #fff);
     padding: 80px 0;
+    transition: 0.3s;
 }
 
 .hero-content {
@@ -93,6 +195,10 @@ nav a.active {
     align-items: center;
     justify-content: space-between;
     gap: 50px;
+}
+
+.hero-text {
+    max-width: 650px;
 }
 
 .small-title {
@@ -109,10 +215,6 @@ nav a.active {
     margin: 15px 0;
 }
 
-.hero-content > div:first-child {
-    max-width: 650px;
-}
-
 .hero-content p {
     color: #666;
     font-size: 18px;
@@ -122,33 +224,56 @@ nav a.active {
     display: inline-block;
     margin-top: 25px;
     padding: 14px 28px;
+
     background: #087fc1;
     color: white;
+
     text-decoration: none;
     border-radius: 5px;
+
     transition: 0.25s;
 }
 
 .button:hover {
     background: #05679d;
+    transform: translateY(-2px);
 }
+
+
+/* =====================================================
+   DOCTOR
+===================================================== */
 
 .doctor-card {
     min-width: 300px;
     padding: 35px;
+
     text-align: center;
+
     background: white;
     border-radius: 12px;
+
     box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+
+    transition: 0.3s;
 }
 
-.doctor-icon {
-    font-size: 80px;
+.doctor-icon img {
+    width: 180px;
+    height: 180px;
+
+    object-fit: cover;
+
+    border-radius: 50%;
 }
 
 .doctor-card h3 {
     color: #0877b5;
     margin: 10px 0;
+}
+
+.doctor-card p {
+    color: #666;
 }
 
 .doctor-card span {
@@ -157,7 +282,10 @@ nav a.active {
     color: #087fc1;
 }
 
-/* SECTIONS */
+
+/* =====================================================
+   SECTIONS
+===================================================== */
 
 .info,
 .services,
@@ -165,6 +293,10 @@ nav a.active {
 .contacts,
 .prices {
     padding: 70px 0;
+}
+
+.info {
+    background: #fff;
 }
 
 .services {
@@ -181,9 +313,16 @@ nav a.active {
 .center-text {
     max-width: 800px;
     margin: 0 auto 35px;
+
     text-align: center;
+
     color: #666;
 }
+
+
+/* =====================================================
+   SYMPTOMS
+===================================================== */
 
 .symptoms {
     display: grid;
@@ -193,11 +332,23 @@ nav a.active {
 
 .symptoms div {
     padding: 18px;
+
     background: #f4faff;
+
     border-left: 4px solid #087fc1;
+
+    transition: 0.25s;
 }
 
-/* CARDS */
+.symptoms div:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.06);
+}
+
+
+/* =====================================================
+   CARDS
+===================================================== */
 
 .cards {
     display: grid;
@@ -207,10 +358,15 @@ nav a.active {
 
 .card {
     padding: 30px 20px;
+
     background: white;
+
     border-radius: 8px;
+
     text-align: center;
+
     box-shadow: 0 4px 18px rgba(0,0,0,0.07);
+
     transition: 0.25s;
 }
 
@@ -232,7 +388,139 @@ nav a.active {
     color: #777;
 }
 
-/* APPOINTMENT */
+
+/* =====================================================
+   HOW IT WORKS
+===================================================== */
+
+.how-it-works {
+    padding: 70px 0;
+    background: #fff;
+}
+
+.steps {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+    margin-top: 35px;
+}
+
+.step {
+    padding: 30px 20px;
+
+    text-align: center;
+
+    background: #f5fafc;
+
+    border-radius: 10px;
+
+    box-shadow: 0 4px 18px rgba(0,0,0,0.06);
+
+    transition: 0.25s;
+}
+
+.step:hover {
+    transform: translateY(-4px);
+}
+
+.step-number {
+    width: 50px;
+    height: 50px;
+
+    margin: 0 auto 15px;
+
+    border-radius: 50%;
+
+    background: #087fc1;
+    color: white;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.step h3 {
+    color: #0877b5;
+    margin-bottom: 10px;
+}
+
+.step p {
+    color: #777;
+}
+
+
+/* =====================================================
+   REVIEWS
+===================================================== */
+
+.reviews {
+    padding: 70px 0;
+    background: #fff;
+}
+
+.reviews-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    margin-top: 35px;
+}
+
+.review-card {
+    background: #f5fafc;
+
+    border-radius: 10px;
+
+    padding: 30px;
+
+    box-shadow: 0 4px 18px rgba(0,0,0,0.07);
+
+    border: 1px solid #e5eeee;
+
+    transition: 0.25s;
+}
+
+.review-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.10);
+}
+
+.review-stars {
+    color: #f2b600;
+    font-size: 22px;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+}
+
+.review-text {
+    color: #555;
+    font-size: 16px;
+    line-height: 1.7;
+    margin-bottom: 20px;
+}
+
+.review-author {
+    border-top: 1px solid #dce9ed;
+    padding-top: 15px;
+}
+
+.review-author strong {
+    display: block;
+    color: #0877b5;
+    font-size: 17px;
+}
+
+.review-author span {
+    color: #888;
+    font-size: 13px;
+}
+
+
+/* =====================================================
+   APPOINTMENT
+===================================================== */
 
 .appointment {
     padding: 50px 0;
@@ -244,10 +532,41 @@ nav a.active {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 30px;
 }
 
 .appointment h2 {
     font-size: 30px;
+}
+
+.appointment-buttons {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.appointment-buttons .appointment-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 14px 24px;
+
+    background: white;
+    color: #0877b5;
+
+    text-decoration: none;
+
+    border-radius: 6px;
+
+    font-weight: bold;
+    white-space: nowrap;
+
+    transition: 0.25s;
+}
+
+.appointment-buttons .appointment-button:hover {
+    background: #eaf7fd;
 }
 
 .phone {
@@ -257,11 +576,16 @@ nav a.active {
     font-weight: bold;
 }
 
-/* PAGE HEADER */
+
+/* =====================================================
+   PAGE HEADER
+===================================================== */
 
 .page-header {
     padding: 60px 0;
+
     background: linear-gradient(120deg, #eaf7fd, #fff);
+
     text-align: center;
 }
 
@@ -274,24 +598,33 @@ nav a.active {
     color: #777;
 }
 
-/* PRICES */
+
+/* =====================================================
+   PRICES
+===================================================== */
 
 table {
     width: 100%;
+
     border-collapse: collapse;
+
     background: white;
+
     box-shadow: 0 4px 20px rgba(0,0,0,0.08);
 }
 
 th {
     background: #087fc1;
     color: white;
+
     padding: 15px;
+
     text-align: left;
 }
 
 td {
     padding: 13px 15px;
+
     border-bottom: 1px solid #eee;
 }
 
@@ -312,12 +645,18 @@ td:last-child {
 
 .notice {
     margin-top: 25px;
+
     padding: 20px;
+
     background: #fff8df;
+
     border-left: 5px solid #e5b500;
 }
 
-/* GALLERY */
+
+/* =====================================================
+   GALLERY
+===================================================== */
 
 .gallery-grid {
     display: grid;
@@ -331,13 +670,28 @@ td:last-child {
     overflow: hidden;
 }
 
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
 .placeholder {
     height: 100%;
+
     display: flex;
     justify-content: center;
     align-items: center;
-    background: linear-gradient(135deg, #dff4fc, #b8e3f4);
+
+    background: linear-gradient(
+        135deg,
+        #dff4fc,
+        #b8e3f4
+    );
+
     color: #0877b5;
+
     font-size: 25px;
     font-weight: bold;
 }
@@ -348,7 +702,10 @@ td:last-child {
     margin-top: 30px;
 }
 
-/* CONTACTS */
+
+/* =====================================================
+   CONTACTS
+===================================================== */
 
 .contact-grid {
     display: grid;
@@ -358,8 +715,11 @@ td:last-child {
 
 .contact-card {
     text-align: center;
+
     padding: 40px 25px;
+
     background: #f5fafc;
+
     border-radius: 8px;
 }
 
@@ -375,12 +735,18 @@ td:last-child {
 
 .contact-card a {
     color: #087fc1;
+
     font-size: 20px;
+
     text-decoration: none;
+
     font-weight: bold;
 }
 
-/* MAP */
+
+/* =====================================================
+   MAP
+===================================================== */
 
 .map-section {
     padding: 0 0 70px;
@@ -388,8 +754,12 @@ td:last-child {
 
 .map-placeholder {
     height: 300px;
+
     background:
-        linear-gradient(rgba(220,240,245,0.8), rgba(220,240,245,0.8)),
+        linear-gradient(
+            rgba(220,240,245,0.8),
+            rgba(220,240,245,0.8)
+        ),
         repeating-linear-gradient(
             45deg,
             #d6e8eb,
@@ -397,10 +767,14 @@ td:last-child {
             #c8dde0 10px,
             #c8dde0 20px
         );
+
     display: flex;
+
     justify-content: center;
     align-items: center;
+
     text-align: center;
+
     border-radius: 10px;
 }
 
@@ -412,12 +786,17 @@ td:last-child {
     color: #155b7c;
 }
 
-/* FOOTER */
+
+/* =====================================================
+   FOOTER
+===================================================== */
 
 footer {
     background: #155b7c;
     color: white;
+
     padding: 30px 0;
+
     text-align: center;
 }
 
@@ -425,7 +804,659 @@ footer p {
     margin: 5px;
 }
 
-/* ADAPTIVE */
+
+/* =====================================================
+   AI
+===================================================== */
+
+.ai-section {
+    padding: 70px 0;
+    background: #f5fafc;
+}
+
+.ai-chat {
+    max-width: 800px;
+
+    margin: 35px auto 0;
+
+    background: white;
+
+    border-radius: 12px;
+
+    overflow: hidden;
+
+    box-shadow: 0 8px 30px rgba(0,0,0,0.10);
+
+    border: 1px solid #e5eeee;
+}
+
+.ai-chat-header {
+    display: flex;
+    align-items: center;
+
+    gap: 15px;
+
+    padding: 20px 25px;
+
+    background: #087fc1;
+
+    color: white;
+}
+
+.ai-chat-icon {
+    width: 50px;
+    height: 50px;
+
+    border-radius: 50%;
+
+    background: white;
+    color: #087fc1;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 27px;
+
+    flex-shrink: 0;
+}
+
+.ai-chat-header h3 {
+    margin: 0;
+    font-size: 20px;
+}
+
+.ai-chat-header p {
+    margin: 3px 0 0;
+    font-size: 14px;
+    opacity: 0.9;
+}
+
+.ai-messages {
+    height: 400px;
+
+    padding: 20px;
+
+    overflow-y: auto;
+
+    background: #f8fbfc;
+}
+
+.ai-message {
+    max-width: 80%;
+
+    margin-bottom: 15px;
+
+    padding: 13px 17px;
+
+    background: white;
+
+    border: 1px solid #e1ebee;
+
+    border-radius: 14px;
+
+    color: #444;
+
+    line-height: 1.55;
+}
+
+.ai-message.user {
+    margin-left: auto;
+
+    background: #087fc1;
+
+    color: white;
+
+    border-color: #087fc1;
+}
+
+.ai-input-area {
+    display: flex;
+
+    gap: 10px;
+
+    padding: 15px;
+
+    border-top: 1px solid #e5e5e5;
+
+    background: white;
+}
+
+.ai-input-area input {
+    flex: 1;
+
+    padding: 14px 16px;
+
+    border: 1px solid #ccdadd;
+
+    border-radius: 7px;
+
+    font-size: 16px;
+
+    outline: none;
+}
+
+.ai-input-area input:focus {
+    border-color: #087fc1;
+}
+
+.ai-input-area button {
+    padding: 0 25px;
+
+    border: none;
+
+    border-radius: 7px;
+
+    background: #087fc1;
+
+    color: white;
+
+    font-size: 16px;
+
+    cursor: pointer;
+
+    transition: 0.25s;
+}
+
+.ai-input-area button:hover {
+    background: #05679d;
+}
+
+.ai-disclaimer {
+    padding: 12px 18px;
+
+    background: #fff8df;
+
+    border-top: 1px solid #eee2ad;
+
+    color: #666;
+
+    font-size: 12px;
+
+    line-height: 1.5;
+}
+
+
+/* =====================================================
+   FLOATING BUTTONS
+===================================================== */
+
+.floating-buttons {
+    position: fixed;
+
+    right: 20px;
+    bottom: 20px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 10px;
+
+    z-index: 1000;
+}
+
+.floating-button {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 8px;
+
+    min-width: 150px;
+    height: 48px;
+
+    padding: 0 18px;
+
+    background: #087fc1;
+    color: white;
+
+    text-decoration: none;
+
+    border-radius: 25px;
+
+    box-shadow: 0 5px 18px rgba(0,0,0,0.2);
+
+    font-weight: bold;
+
+    transition: 0.25s;
+}
+
+.floating-button:hover {
+    background: #05679d;
+    transform: translateY(-2px);
+}
+
+
+/* =====================================================
+   COOKIE BANNER
+===================================================== */
+
+.cookie-banner {
+    position: fixed;
+
+    left: 20px;
+    right: 20px;
+    bottom: 20px;
+
+    max-width: 900px;
+
+    margin: auto;
+
+    padding: 18px 22px;
+
+    background: white;
+
+    border: 1px solid #dce7eb;
+
+    border-radius: 12px;
+
+    box-shadow: 0 8px 30px rgba(0,0,0,0.20);
+
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 25px;
+
+    z-index: 9999;
+
+    transition:
+        opacity 0.3s ease,
+        transform 0.3s ease;
+}
+
+.cookie-banner.hidden {
+    display: none;
+}
+
+.cookie-text {
+    flex: 1;
+}
+
+.cookie-text strong {
+    display: block;
+
+    color: #155b7c;
+
+    font-size: 16px;
+
+    margin-bottom: 4px;
+}
+
+.cookie-text p {
+    margin: 0;
+
+    color: #555;
+
+    font-size: 14px;
+}
+
+.cookie-buttons {
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    flex-shrink: 0;
+}
+
+.cookie-buttons button {
+    padding: 10px 20px;
+
+    border-radius: 6px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.25s;
+}
+
+.cookie-accept {
+    border: none;
+
+    background: #087fc1;
+
+    color: white;
+}
+
+.cookie-accept:hover {
+    background: #05679d;
+}
+
+.cookie-reject {
+    border: 1px solid #ccdadd;
+
+    background: white;
+
+    color: #555;
+}
+
+.cookie-reject:hover {
+    background: #f2f5f6;
+}
+
+
+/* =====================================================
+   APPOINTMENT FORM
+===================================================== */
+
+.appointment-form {
+    max-width: 700px;
+
+    margin: 35px auto 0;
+
+    padding: 35px;
+
+    background: white;
+
+    border-radius: 12px;
+
+    box-shadow: 0 6px 25px rgba(0,0,0,0.08);
+}
+
+.appointment-form label {
+    display: block;
+
+    margin-bottom: 7px;
+
+    color: #155b7c;
+
+    font-weight: bold;
+}
+
+.appointment-form input,
+.appointment-form select,
+.appointment-form textarea {
+    width: 100%;
+
+    padding: 13px 15px;
+
+    margin-bottom: 20px;
+
+    border: 1px solid #ccdadd;
+
+    border-radius: 7px;
+
+    font-size: 16px;
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    outline: none;
+
+    transition: 0.25s;
+}
+
+.appointment-form input:focus,
+.appointment-form select:focus,
+.appointment-form textarea:focus {
+    border-color: #087fc1;
+
+    box-shadow:
+        0 0 0 3px rgba(8,127,193,0.10);
+}
+
+.appointment-form textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+.appointment-form button {
+    width: 100%;
+
+    padding: 14px;
+
+    border: none;
+
+    border-radius: 7px;
+
+    background: #087fc1;
+
+    color: white;
+
+    font-size: 17px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.25s;
+}
+
+.appointment-form button:hover {
+    background: #05679d;
+}
+
+
+/* =====================================================
+   🌙 DARK MODE
+===================================================== */
+
+body.dark-mode {
+    background: #12181d;
+    color: #e8eef2;
+}
+
+body.dark-mode header {
+    background: #182127;
+    border-bottom-color: #2a363d;
+}
+
+body.dark-mode .logo h1 {
+    color: #55b9e8;
+}
+
+body.dark-mode .logo p {
+    color: #aab7bf;
+}
+
+body.dark-mode nav a {
+    color: #dce6eb;
+}
+
+body.dark-mode nav a:hover,
+body.dark-mode nav a.active {
+    background: #087fc1;
+    color: white;
+}
+
+body.dark-mode nav a.ai-button {
+    background: #20333d;
+    color: #70c8ed;
+    border-color: #31515f;
+}
+
+body.dark-mode nav a.ai-button:hover {
+    background: #087fc1;
+    color: white;
+}
+
+body.dark-mode .theme-toggle {
+    background: #20333d;
+    color: #70c8ed;
+    border-color: #31515f;
+}
+
+body.dark-mode .theme-toggle:hover {
+    background: #087fc1;
+    color: white;
+}
+
+body.dark-mode .hero {
+    background: linear-gradient(120deg, #172c36, #12181d);
+}
+
+body.dark-mode .hero h2,
+body.dark-mode .section-title,
+body.dark-mode .page-header h2 {
+    color: #70c8ed;
+}
+
+body.dark-mode .hero-content p,
+body.dark-mode .center-text {
+    color: #b7c2c8;
+}
+
+body.dark-mode .doctor-card,
+body.dark-mode .card,
+body.dark-mode .step,
+body.dark-mode .review-card {
+    background: #1b252c;
+    color: #e8eef2;
+    border-color: #2e3b43;
+}
+
+body.dark-mode .doctor-card p,
+body.dark-mode .card p,
+body.dark-mode .step p,
+body.dark-mode .review-text {
+    color: #b7c2c8;
+}
+
+body.dark-mode .doctor-card h3,
+body.dark-mode .card h3,
+body.dark-mode .step h3,
+body.dark-mode .review-author strong {
+    color: #70c8ed;
+}
+
+body.dark-mode .info,
+body.dark-mode .how-it-works,
+body.dark-mode .reviews {
+    background: #12181d;
+}
+
+body.dark-mode .services {
+    background: #182127;
+}
+
+body.dark-mode .symptoms div,
+body.dark-mode .contact-card {
+    background: #1b252c;
+    color: #e8eef2;
+}
+
+body.dark-mode .page-header {
+    background: linear-gradient(120deg, #172c36, #12181d);
+}
+
+body.dark-mode table {
+    background: #1b252c;
+    color: #e8eef2;
+}
+
+body.dark-mode td {
+    border-bottom-color: #303c43;
+}
+
+body.dark-mode tr:hover td {
+    background: #223139;
+}
+
+body.dark-mode .category td {
+    background: #203640;
+    color: #70c8ed;
+}
+
+body.dark-mode .ai-section {
+    background: #182127;
+}
+
+body.dark-mode .ai-chat {
+    background: #1b252c;
+    border-color: #304049;
+}
+
+body.dark-mode .ai-messages {
+    background: #121a1f;
+}
+
+body.dark-mode .ai-message {
+    background: #1d2930;
+    color: #e5edf1;
+    border-color: #33434c;
+}
+
+body.dark-mode .ai-input-area {
+    background: #1b252c;
+    border-top-color: #304049;
+}
+
+body.dark-mode .ai-input-area input {
+    background: #121a1f;
+    color: white;
+    border-color: #40515a;
+}
+
+body.dark-mode .appointment-form {
+    background: #1b252c;
+}
+
+body.dark-mode .appointment-form label {
+    color: #70c8ed;
+}
+
+body.dark-mode .appointment-form input,
+body.dark-mode .appointment-form select,
+body.dark-mode .appointment-form textarea {
+    background: #121a1f;
+    color: white;
+    border-color: #40515a;
+}
+
+body.dark-mode .cookie-banner {
+    background: #1b252c;
+    border-color: #34434b;
+}
+
+body.dark-mode .cookie-text strong {
+    color: #70c8ed;
+}
+
+body.dark-mode .cookie-text p {
+    color: #c6d0d5;
+}
+
+body.dark-mode .cookie-reject {
+    background: #121a1f;
+    color: #dce6eb;
+    border-color: #40515a;
+}
+
+
+/* =====================================================
+   ADAPTIVE 1100
+===================================================== */
+
+@media (max-width: 1100px) {
+
+    .header {
+        gap: 15px;
+    }
+
+    nav {
+        justify-content: center;
+    }
+
+    nav a {
+        padding: 10px 11px;
+    }
+
+    nav a.ai-button,
+    nav a.appointment-button {
+        padding: 0 12px;
+    }
+
+}
+
+
+/* =====================================================
+   ADAPTIVE 900
+===================================================== */
 
 @media (max-width: 900px) {
 
@@ -435,13 +1466,22 @@ footer p {
     }
 
     nav {
+        width: 100%;
         flex-wrap: wrap;
         justify-content: center;
+    }
+
+    nav a {
+        padding: 10px 12px;
     }
 
     .hero-content {
         flex-direction: column;
         text-align: center;
+    }
+
+    .hero-text {
+        max-width: 100%;
     }
 
     .hero h2 {
@@ -463,9 +1503,31 @@ footer p {
     .contact-grid {
         grid-template-columns: 1fr;
     }
+
+    .steps {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .reviews-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .appointment-box {
+        gap: 20px;
+    }
+
 }
 
+
+/* =====================================================
+   ADAPTIVE 600
+===================================================== */
+
 @media (max-width: 600px) {
+
+    .container {
+        width: 92%;
+    }
 
     .cards,
     .symptoms,
@@ -473,10 +1535,41 @@ footer p {
         grid-template-columns: 1fr;
     }
 
+    .steps {
+        grid-template-columns: 1fr;
+    }
+
+    .reviews-grid {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+
+    .reviews {
+        padding: 50px 0;
+    }
+
+    .review-card {
+        padding: 25px;
+    }
+
     .appointment-box {
         flex-direction: column;
         text-align: center;
         gap: 20px;
+    }
+
+    .appointment-buttons {
+        flex-direction: column;
+        width: 100%;
+        gap: 15px;
+    }
+
+    .appointment-buttons .appointment-button {
+        width: 100%;
+    }
+
+    .phone {
+        font-size: 20px;
     }
 
     table {
@@ -488,140 +1581,39 @@ footer p {
         padding: 9px;
     }
 
+    .hero {
+        padding: 55px 0;
+    }
+
     .hero h2 {
         font-size: 30px;
+    }
+
+    .hero-content p {
+        font-size: 16px;
     }
 
     .doctor-card {
         min-width: 0;
         width: 100%;
     }
-}
-/* =========================
-   AI ПОМІЧНИК УРОЛОГА
-========================= */
 
-.ai-section {
-    padding: 70px 0;
-    background: #f5fafc;
-}
+    .theme-toggle {
+        width: 40px;
+        height: 40px;
+        font-size: 18px;
+    }
 
-.ai-chat {
-    max-width: 800px;
-    margin: 35px auto 0;
-    background: white;
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 8px 30px rgba(0,0,0,0.10);
-    border: 1px solid #e5eeee;
-}
+    .floating-buttons {
+        right: 10px;
+        bottom: 10px;
+    }
 
-.ai-chat-header {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    padding: 20px 25px;
-    background: #087fc1;
-    color: white;
-}
-
-.ai-chat-icon {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    background: white;
-    color: #087fc1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 27px;
-}
-
-.ai-chat-header h3 {
-    margin: 0;
-    font-size: 20px;
-}
-
-.ai-chat-header p {
-    margin: 3px 0 0;
-    font-size: 14px;
-    opacity: 0.9;
-}
-
-.ai-messages {
-    height: 400px;
-    padding: 20px;
-    overflow-y: auto;
-    background: #f8fbfc;
-}
-
-.ai-message {
-    max-width: 80%;
-    margin-bottom: 15px;
-    padding: 13px 17px;
-    background: white;
-    border: 1px solid #e1ebee;
-    border-radius: 14px;
-    color: #444;
-    line-height: 1.55;
-}
-
-.ai-message.user {
-    margin-left: auto;
-    background: #087fc1;
-    color: white;
-    border-color: #087fc1;
-}
-
-.ai-input-area {
-    display: flex;
-    gap: 10px;
-    padding: 15px;
-    border-top: 1px solid #e5e5e5;
-    background: white;
-}
-
-.ai-input-area input {
-    flex: 1;
-    padding: 14px 16px;
-    border: 1px solid #ccdadd;
-    border-radius: 7px;
-    font-size: 16px;
-    outline: none;
-}
-
-.ai-input-area input:focus {
-    border-color: #087fc1;
-}
-
-.ai-input-area button {
-    padding: 0 25px;
-    border: none;
-    border-radius: 7px;
-    background: #087fc1;
-    color: white;
-    font-size: 16px;
-    cursor: pointer;
-    transition: 0.25s;
-}
-
-.ai-input-area button:hover {
-    background: #05679d;
-}
-
-.ai-disclaimer {
-    padding: 12px 18px;
-    background: #fff8df;
-    border-top: 1px solid #eee2ad;
-    color: #666;
-    font-size: 12px;
-    line-height: 1.5;
-}
-
-
-/* AI НА ТЕЛЕФОНЕ */
-
-@media (max-width: 600px) {
+    .floating-button {
+        min-width: 135px;
+        height: 44px;
+        font-size: 14px;
+    }
 
     .ai-section {
         padding: 50px 0;
@@ -649,6 +1641,33 @@ footer p {
 
     .ai-input-area button {
         height: 45px;
+    }
+
+    .appointment-form {
+        width: 100%;
+        padding: 22px;
+    }
+
+    .cookie-banner {
+        left: 10px;
+        right: 10px;
+        bottom: 10px;
+
+        flex-direction: column;
+
+        align-items: stretch;
+
+        padding: 16px;
+
+        gap: 12px;
+    }
+
+    .cookie-buttons {
+        width: 100%;
+    }
+
+    .cookie-buttons button {
+        flex: 1;
     }
 
 }

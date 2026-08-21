@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>ІІ-помічник — Урологічний кабінет</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+
+    <div class="container header">
+
+        <div class="logo">
+
+            <div class="logo-icon">⚕</div>
+
+            <div>
+                <h1>Урологічний кабінет</h1>
+                <p>лікаря Супруненка</p>
+            </div>
+
+        </div>
+
+
+        <nav>
+
+            <a href="index.html">Головна</a>
+
+            <a href="ceny.html">Ціни</a>
+
+            <a href="fotogalereya.html">Фотогалерея</a>
+
+            <a href="vidguky.html">Відгуки</a>
+
+            <a href="kontakty.html">Контакти</a>
+
+            <a href="ai.html" class="ai-button">🤖 ІІ-помічник</a>
+
+            <a href="zapis.html" class="appointment-button">📅 Запис</a>
+
+        </nav>
+
+    </div>
+
+</header>
+
+
+<section class="ai-section">
+
+    <div class="container">
+
+        <h2 class="section-title">
+            🤖 ІІ-помічник уролога
+        </h2>
+
+        <p class="center-text">
+            Опишіть своє питання, і помічник допоможе зорієнтуватися.
+        </p>
+
+
+        <div class="ai-chat">
+
+            <div class="ai-chat-header">
+
+                <div class="ai-chat-icon">
+                    🤖
+                </div>
+
+                <div>
+
+                    <h3>ІІ-помічник</h3>
+
+                    <p>
+                        Інформаційний помічник
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="ai-messages" id="aiMessages">
+
+                <div class="ai-message">
+                    Вітаю! 👋 Я ІІ-помічник урологічного кабінету.
+                    Напишіть своє питання.
+                </div>
+
+            </div>
+
+
+            <div class="ai-input-area">
+
+                <input
+                    type="text"
+                    id="aiInput"
+                    placeholder="Напишіть своє питання..."
+                >
+
+                <button onclick="sendMessage()">
+                    Надіслати
+                </button>
+
+            </div>
+
+
+            <div class="ai-disclaimer">
+
+                ⚠️ ІІ-помічник надає лише загальну інформацію
+                та не замінює консультацію лікаря.
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<footer>
+
+    <div class="container">
+
+        <p>
+            © 2026 Урологічний кабінет лікаря Супруненка
+        </p>
+
+        <p>
+            м. Полтава, вул. Чорновола 2Б
+        </p>
+
+    </div>
+
+</footer>
+
+
+<script>
+
+function sendMessage() {
+
+    const input = document.getElementById("aiInput");
+    const messages = document.getElementById("aiMessages");
+
+    const text = input.value.trim();
+
+    if (!text) {
+        return;
+    }
+
+
+    /* Повідомлення користувача */
+
+    const userMessage = document.createElement("div");
+
+    userMessage.className = "ai-message user";
+
+    userMessage.textContent = text;
+
+    messages.appendChild(userMessage);
+
+
+    input.value = "";
+
+
+    /* Відповідь */
+
+    setTimeout(function() {
+
+        const aiMessage = document.createElement("div");
+
+        aiMessage.className = "ai-message";
+
+        aiMessage.textContent =
+            "Дякую за ваше питання. Я можу надати лише загальну інформацію. Для точної оцінки стану здоров’я рекомендується звернутися до лікаря-уролога.";
+
+        messages.appendChild(aiMessage);
+
+        messages.scrollTop = messages.scrollHeight;
+
+    }, 600);
+
+}
+
+</script>
+
+
+</body>
+</html>

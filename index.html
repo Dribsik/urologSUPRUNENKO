@@ -3,275 +3,550 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Урологічний центр</title>
+
+    <title>Урологічний кабінет лікаря Супруненка</title>
+
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
 <header>
     <div class="container header">
+
         <div class="logo">
             <div class="logo-icon">⚕</div>
+
             <div>
                 <h1>Урологічний кабінет</h1>
                 <p>лікаря Супруненка</p>
             </div>
         </div>
+
         <nav>
-            <a href="index.html">Головна</a>
+            <a href="index.html" class="active">Головна</a>
             <a href="ceny.html">Ціни</a>
             <a href="fotogalereya.html">Фотогалерея</a>
+            <a href="vidguky.html">Відгуки</a>
             <a href="kontakty.html">Контакти</a>
+
+            <a href="ai.html" class="ai-button">
+                🤖 ІІ-помічник
+            </a>
+
+            <a href="zapis.html" class="appointment-button">
+                📅 Запис
+            </a>
+
+            <button
+                class="theme-toggle"
+                id="themeToggle"
+                type="button"
+                aria-label="Перемкнути тему"
+                title="Перемкнути тему">
+                🌙
+            </button>
         </nav>
+
     </div>
 </header>
+
+
+<!-- HERO -->
+
 <section class="hero">
+
     <div class="container hero-content">
-        <div>
-            <p class="small-title">УРOЛОГІЧНИЙ Кабінет</p>
-            <h2>Діагностика, лікування<br>та профілактика</h2>
+
+        <div class="hero-text">
+
+            <p class="small-title">
+                УРОЛОГІЧНИЙ КАБІНЕТ
+            </p>
+
+            <h2>
+                Діагностика, лікування<br>
+                та профілактика
+            </h2>
+
             <p>
                 Професійна допомога при захворюваннях
                 сечостатевої системи у чоловіків та жінок.
             </p>
-            <a href="kontakty.html" class="button">Записатися на консультацію</a>
+
+            <a href="zapis.html" class="button">
+                Записатися на консультацію
+            </a>
+
         </div>
+
 
         <div class="doctor-card">
+
             <div class="doctor-icon">
-    <img src="Dosent.jpeg" alt="Фото">
-</div>
-            <h3>Супруненко Сергій</h3>
-            <p>Лікар-уролог першої. категорії</p>
-            <span>Понад 40 років досвіду</span>
+                <img src="Dosent.jpeg" alt="Лікар Супруненко">
+            </div>
+
+            <h3>
+                Супруненко Сергій
+            </h3>
+
+            <p>
+                Лікар-уролог першої категорії
+            </p>
+
+            <span>
+                Понад 40 років досвіду
+            </span>
+
         </div>
+
     </div>
+
 </section>
 
+
+<!-- СИМПТОМИ -->
+
 <section class="info">
+
     <div class="container">
-        <h2 class="section-title">Коли варто звернутися до уролога?</h2>
+
+        <h2 class="section-title">
+            Коли варто звернутися до уролога?
+        </h2>
 
         <p class="center-text">
-            Не варто відкладати відвідування лікаря. Своєчасна
-            діагностика допомагає швидше визначити проблему
-            та підібрати необхідне лікування.
+            Не варто відкладати відвідування лікаря.
+            Своєчасна діагностика допомагає швидше визначити
+            проблему та підібрати необхідне лікування.
         </p>
 
         <div class="symptoms">
+
             <div>✓ Біль під час сечовипускання</div>
             <div>✓ Часті позиви до сечовипускання</div>
             <div>✓ Біль у нирках або нижній частині живота</div>
             <div>✓ Кров у сечі</div>
             <div>✓ Біль або набряк яєчок</div>
             <div>✓ Проблеми з потенцією</div>
+
         </div>
+
     </div>
+
 </section>
 
+
+<!-- НАПРЯМКИ -->
+
 <section class="services">
+
     <div class="container">
-        <h2 class="section-title">Наші напрямки</h2>
+
+        <h2 class="section-title">
+            Наші напрямки
+        </h2>
 
         <div class="cards">
+
             <div class="card">
                 <div class="card-icon">🩺</div>
+
                 <h3>Простатит</h3>
-                <p>Діагностика та лікування захворювань простати.</p>
+
+                <p>
+                    Діагностика та лікування захворювань простати.
+                </p>
             </div>
+
 
             <div class="card">
                 <div class="card-icon">🔬</div>
+
                 <h3>Діагностика</h3>
-                <p>Сучасні методи обстеження та лабораторна діагностика.</p>
+
+                <p>
+                    Сучасні методи обстеження та лабораторна діагностика.
+                </p>
             </div>
+
 
             <div class="card">
                 <div class="card-icon">💧</div>
+
                 <h3>Цистит</h3>
-                <p>Допомога при захворюваннях сечового міхура.</p>
+
+                <p>
+                    Допомога при захворюваннях сечового міхура.
+                </p>
             </div>
+
 
             <div class="card">
                 <div class="card-icon">⚕</div>
+
                 <h3>Сечокам'яна хвороба</h3>
-                <p>Діагностика та лікування каменів сечовидільної системи.</p>
+
+                <p>
+                    Діагностика та лікування каменів
+                    сечовидільної системи.
+                </p>
             </div>
-        </div>
-    </div>
-</section>
 
-<section class="appointment">
-    <div class="container appointment-box">
-        <div>
-            <h2>Потрібна консультація?</h2>
-            <p>Зателефонуйте нам та домовтеся про прийом.</p>
         </div>
 
-        <a href="tel:+380509022563" class="phone">
-            +38 (050) 902-25-63
-        </a>
     </div>
+
 </section>
 
-<footer>
-    <div class="container">
-        <p>© 2026 Урологічний кабінет лікаря Супруненка</p>
-        <p>м. Полтава, вул. Чорновола 2Б, Біля швидко друк</p>
-    </div>
-</footer>
-<!-- AI ПОМОЩНИК УРОЛОГА -->
-<section class="ai-section">
+
+<!-- ЯК ПРОХОДИТЬ ЗАПИС -->
+
+<section class="how-it-works">
+
     <div class="container">
 
-        <h2 class="section-title">ИИ-помічник уролога</h2>
+        <h2 class="section-title">
+            Як проходить запис?
+        </h2>
+
+        <div class="steps">
+
+            <div class="step">
+                <div class="step-number">1</div>
+
+                <h3>Заповніть форму</h3>
+
+                <p>
+                    Вкажіть свої контактні дані та бажаний час.
+                </p>
+            </div>
+
+
+            <div class="step">
+                <div class="step-number">2</div>
+
+                <h3>Заявка надходить лікарю</h3>
+
+                <p>
+                    Ми отримуємо інформацію про вашу заявку.
+                </p>
+            </div>
+
+
+            <div class="step">
+                <div class="step-number">3</div>
+
+                <h3>Підтвердження</h3>
+
+                <p>
+                    З вами зв'яжуться для підтвердження запису.
+                </p>
+            </div>
+
+
+            <div class="step">
+                <div class="step-number">4</div>
+
+                <h3>Консультація</h3>
+
+                <p>
+                    Ви приходите на прийом у погоджений час.
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ВІДГУКИ -->
+
+<section class="reviews">
+
+    <div class="container">
+
+        <h2 class="section-title">
+            Відгуки наших пацієнтів
+        </h2>
 
         <p class="center-text">
-            Задайте питання про урологію та отримайте загальну інформацію.
+            Дякуємо пацієнтам за довіру та добрі слова.
         </p>
 
-        <div class="ai-chat">
+        <div class="reviews-grid">
 
-            <div class="ai-chat-header">
-                <div class="ai-chat-icon">⚕</div>
-                <div>
-                    <h3>Урологічний AI-помічник</h3>
-                    <p>Онлайн-помічник з питань урології</p>
+            <div class="review-card">
+
+                <div class="review-stars">
+                    ★★★★★
                 </div>
-            </div>
 
-            <div class="ai-messages" id="aiMessages">
+                <p class="review-text">
+                    Дуже уважний та професійний лікар.
+                    Все доступно пояснив та відповів
+                    на всі запитання. Дякую за допомогу!
+                </p>
 
-                <div class="ai-message">
-                    <strong>AI-помічник:</strong><br>
-                    Вітаю! Я спеціалізований AI-помічник з урології.
-                    Можу відповісти на питання про симптоми,
-                    урологічні захворювання, аналізи та підготовку
-                    до консультації уролога.
-                    <br><br>
-                    Напишіть своє питання нижче.
+                <div class="review-author">
+                    <strong>Олександр</strong>
+                    <span>Пацієнт</span>
                 </div>
 
             </div>
 
-            <div class="ai-input-area">
 
-                <input
-                    type="text"
-                    id="aiInput"
-                    placeholder="Напишіть питання про урологію..."
-                    autocomplete="off"
-                >
+            <div class="review-card">
 
-                <button id="aiSend">
-                    Надіслати
-                </button>
+                <div class="review-stars">
+                    ★★★★★
+                </div>
+
+                <p class="review-text">
+                    Залишився задоволений консультацією.
+                    У кабінеті чисто, прийом проходить
+                    спокійно та без поспіху.
+                </p>
+
+                <div class="review-author">
+                    <strong>Андрій</strong>
+                    <span>Пацієнт</span>
+                </div>
 
             </div>
 
-            <div class="ai-disclaimer">
-                ⚠️ AI-помічник надає загальну інформацію та не замінює
-                консультацію лікаря. При гострих або небезпечних симптомах
-                необхідно звернутися за медичною допомогою.
+
+            <div class="review-card">
+
+                <div class="review-stars">
+                    ★★★★★
+                </div>
+
+                <p class="review-text">
+                    Дякую лікарю за уважне ставлення
+                    та професійний підхід.
+                    Рекомендую!
+                </p>
+
+                <div class="review-author">
+                    <strong>Ірина</strong>
+                    <span>Пацієнтка</span>
+                </div>
+
             </div>
 
         </div>
 
     </div>
+
 </section>
 
+
+<!-- ЗАПИС -->
+
+<section class="appointment">
+
+    <div class="container appointment-box">
+
+        <div>
+            <h2>
+                Потрібна консультація?
+            </h2>
+
+            <p>
+                Запишіться онлайн або зателефонуйте нам.
+            </p>
+        </div>
+
+
+        <div class="appointment-buttons">
+
+            <a href="zapis.html" class="appointment-button">
+                📅 Записатися
+            </a>
+
+            <a href="tel:+380509022563" class="phone">
+                +38 (050) 902-25-63
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+    <div class="container">
+
+        <p>
+            © 2026 Урологічний кабінет лікаря Супруненка
+        </p>
+
+        <p>
+            м. Полтава, вул. Чорновола 2Б
+        </p>
+
+    </div>
+
+</footer>
+
+
+<!-- ПЛАВАЮЩИЕ КНОПКИ -->
+
+<div class="floating-buttons">
+
+    <a href="zapis.html" class="floating-button">
+        📅
+        <span>Запис</span>
+    </a>
+
+    <a href="tel:+380509022563" class="floating-button">
+        📞
+        <span>Зателефонувати</span>
+    </a>
+
+</div>
+
+
+<!-- COOKIE -->
+
+<div class="cookie-banner" id="cookieBanner">
+
+    <div class="cookie-text">
+
+        <strong>
+            🍪 Використання файлів cookie
+        </strong>
+
+        <p>
+            Ми використовуємо cookie для збереження
+            налаштувань сайту та покращення роботи.
+        </p>
+
+    </div>
+
+
+    <div class="cookie-buttons">
+
+        <button
+            id="acceptCookies"
+            class="cookie-accept"
+            type="button">
+            Прийняти
+        </button>
+
+        <button
+            id="rejectCookies"
+            class="cookie-reject"
+            type="button">
+            Відхилити
+        </button>
+
+    </div>
+
+</div>
+
+
 <script>
-const aiInput = document.getElementById("aiInput");
-const aiSend = document.getElementById("aiSend");
-const aiMessages = document.getElementById("aiMessages");
 
-function addAIMessage(text, type) {
+/* =========================================
+   ТЕМНА / СВІТЛА ТЕМА
+========================================= */
 
-    const message = document.createElement("div");
+const themeToggle = document.getElementById("themeToggle");
 
-    if (type === "user") {
-        message.className = "ai-message user";
-        message.innerHTML = "<strong>Ви:</strong><br>" + escapeHTML(text);
+const savedTheme = localStorage.getItem("theme");
+
+if (savedTheme === "dark") {
+
+    document.body.classList.add("dark-mode");
+
+    themeToggle.textContent = "☀️";
+
+} else {
+
+    themeToggle.textContent = "🌙";
+
+}
+
+
+themeToggle.addEventListener("click", function () {
+
+    document.body.classList.toggle("dark-mode");
+
+    if (document.body.classList.contains("dark-mode")) {
+
+        localStorage.setItem("theme", "dark");
+
+        themeToggle.textContent = "☀️";
+
     } else {
-        message.className = "ai-message";
-        message.innerHTML = "<strong>AI-помічник:</strong><br>" + text;
+
+        localStorage.setItem("theme", "light");
+
+        themeToggle.textContent = "🌙";
+
     }
 
-    aiMessages.appendChild(message);
-
-    aiMessages.scrollTop = aiMessages.scrollHeight;
-}
-
-function escapeHTML(text) {
-    const div = document.createElement("div");
-    div.textContent = text;
-    return div.innerHTML;
-}
-
-async function sendAIMessage() {
-
-    const text = aiInput.value.trim();
-
-    if (!text) return;
-
-    addAIMessage(text, "user");
-
-    aiInput.value = "";
-
-    const loading = document.createElement("div");
-    loading.className = "ai-message";
-    loading.innerHTML = "<strong>AI-помічник:</strong><br>Думаю...";
-    aiMessages.appendChild(loading);
-
-    aiMessages.scrollTop = aiMessages.scrollHeight;
-
-    try {
-
-        const response = await fetch("/api/chat", {
-            method: "POST",
-
-            headers: {
-                "Content-Type": "application/json"
-            },
-
-            body: JSON.stringify({
-                message: text
-            })
-        });
-
-        const data = await response.json();
-
-        loading.remove();
-
-        if (data.answer) {
-            addAIMessage(data.answer, "ai");
-        } else {
-            addAIMessage(
-                "Не вдалося отримати відповідь. Спробуйте ще раз.",
-                "ai"
-            );
-        }
-
-    } catch (error) {
-
-        loading.remove();
-
-        addAIMessage(
-            "AI-помічник зараз недоступний. Спробуйте пізніше.",
-            "ai"
-        );
-    }
-}
-
-aiSend.addEventListener("click", sendAIMessage);
-
-aiInput.addEventListener("keydown", function(event) {
-
-    if (event.key === "Enter") {
-        sendAIMessage();
-    }
- 
 });
+
+
+/* =========================================
+   COOKIE
+========================================= */
+
+const cookieBanner =
+    document.getElementById("cookieBanner");
+
+const acceptCookies =
+    document.getElementById("acceptCookies");
+
+const rejectCookies =
+    document.getElementById("rejectCookies");
+
+
+const cookieChoice =
+    localStorage.getItem("cookieChoice");
+
+
+if (cookieChoice) {
+
+    cookieBanner.classList.add("hidden");
+
+}
+
+
+acceptCookies.addEventListener("click", function () {
+
+    localStorage.setItem(
+        "cookieChoice",
+        "accepted"
+    );
+
+    cookieBanner.classList.add("hidden");
+
+});
+
+
+rejectCookies.addEventListener("click", function () {
+
+    localStorage.setItem(
+        "cookieChoice",
+        "rejected"
+    );
+
+    cookieBanner.classList.add("hidden");
+
+});
+
 </script>
+
 </body>
 </html>
