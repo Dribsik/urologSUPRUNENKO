@@ -120,6 +120,158 @@
         <p>м. Полтава, вул. Чорновола 2Б, Біля швидко друк</p>
     </div>
 </footer>
+<!-- AI ПОМОЩНИК УРОЛОГА -->
+<section class="ai-section">
+    <div class="container">
 
+        <h2 class="section-title">ИИ-помічник уролога</h2>
+
+        <p class="center-text">
+            Задайте питання про урологію та отримайте загальну інформацію.
+        </p>
+
+        <div class="ai-chat">
+
+            <div class="ai-chat-header">
+                <div class="ai-chat-icon">⚕</div>
+                <div>
+                    <h3>Урологічний AI-помічник</h3>
+                    <p>Онлайн-помічник з питань урології</p>
+                </div>
+            </div>
+
+            <div class="ai-messages" id="aiMessages">
+
+                <div class="ai-message">
+                    <strong>AI-помічник:</strong><br>
+                    Вітаю! Я спеціалізований AI-помічник з урології.
+                    Можу відповісти на питання про симптоми,
+                    урологічні захворювання, аналізи та підготовку
+                    до консультації уролога.
+                    <br><br>
+                    Напишіть своє питання нижче.
+                </div>
+
+            </div>
+
+            <div class="ai-input-area">
+
+                <input
+                    type="text"
+                    id="aiInput"
+                    placeholder="Напишіть питання про урологію..."
+                    autocomplete="off"
+                >
+
+                <button id="aiSend">
+                    Надіслати
+                </button>
+
+            </div>
+
+            <div class="ai-disclaimer">
+                ⚠️ AI-помічник надає загальну інформацію та не замінює
+                консультацію лікаря. При гострих або небезпечних симптомах
+                необхідно звернутися за медичною допомогою.
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+<script>
+const aiInput = document.getElementById("aiInput");
+const aiSend = document.getElementById("aiSend");
+const aiMessages = document.getElementById("aiMessages");
+
+function addAIMessage(text, type) {
+
+    const message = document.createElement("div");
+
+    if (type === "user") {
+        message.className = "ai-message user";
+        message.innerHTML = "<strong>Ви:</strong><br>" + escapeHTML(text);
+    } else {
+        message.className = "ai-message";
+        message.innerHTML = "<strong>AI-помічник:</strong><br>" + text;
+    }
+
+    aiMessages.appendChild(message);
+
+    aiMessages.scrollTop = aiMessages.scrollHeight;
+}
+
+function escapeHTML(text) {
+    const div = document.createElement("div");
+    div.textContent = text;
+    return div.innerHTML;
+}
+
+async function sendAIMessage() {
+
+    const text = aiInput.value.trim();
+
+    if (!text) return;
+
+    addAIMessage(text, "user");
+
+    aiInput.value = "";
+
+    const loading = document.createElement("div");
+    loading.className = "ai-message";
+    loading.innerHTML = "<strong>AI-помічник:</strong><br>Думаю...";
+    aiMessages.appendChild(loading);
+
+    aiMessages.scrollTop = aiMessages.scrollHeight;
+
+    try {
+
+        const response = await fetch("/api/chat", {
+            method: "POST",
+
+            headers: {
+                "Content-Type": "application/json"
+            },
+
+            body: JSON.stringify({
+                message: text
+            })
+        });
+
+        const data = await response.json();
+
+        loading.remove();
+
+        if (data.answer) {
+            addAIMessage(data.answer, "ai");
+        } else {
+            addAIMessage(
+                "Не вдалося отримати відповідь. Спробуйте ще раз.",
+                "ai"
+            );
+        }
+
+    } catch (error) {
+
+        loading.remove();
+
+        addAIMessage(
+            "AI-помічник зараз недоступний. Спробуйте пізніше.",
+            "ai"
+        );
+    }
+}
+
+aiSend.addEventListener("click", sendAIMessage);
+
+aiInput.addEventListener("keydown", function(event) {
+
+    if (event.key === "Enter") {
+        sendAIMessage();
+    }
+ 
+});
+</script>
 </body>
 </html>

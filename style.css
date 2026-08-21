@@ -497,3 +497,158 @@ footer p {
         width: 100%;
     }
 }
+/* =========================
+   AI ПОМІЧНИК УРОЛОГА
+========================= */
+
+.ai-section {
+    padding: 70px 0;
+    background: #f5fafc;
+}
+
+.ai-chat {
+    max-width: 800px;
+    margin: 35px auto 0;
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.10);
+    border: 1px solid #e5eeee;
+}
+
+.ai-chat-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 20px 25px;
+    background: #087fc1;
+    color: white;
+}
+
+.ai-chat-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: white;
+    color: #087fc1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 27px;
+}
+
+.ai-chat-header h3 {
+    margin: 0;
+    font-size: 20px;
+}
+
+.ai-chat-header p {
+    margin: 3px 0 0;
+    font-size: 14px;
+    opacity: 0.9;
+}
+
+.ai-messages {
+    height: 400px;
+    padding: 20px;
+    overflow-y: auto;
+    background: #f8fbfc;
+}
+
+.ai-message {
+    max-width: 80%;
+    margin-bottom: 15px;
+    padding: 13px 17px;
+    background: white;
+    border: 1px solid #e1ebee;
+    border-radius: 14px;
+    color: #444;
+    line-height: 1.55;
+}
+
+.ai-message.user {
+    margin-left: auto;
+    background: #087fc1;
+    color: white;
+    border-color: #087fc1;
+}
+
+.ai-input-area {
+    display: flex;
+    gap: 10px;
+    padding: 15px;
+    border-top: 1px solid #e5e5e5;
+    background: white;
+}
+
+.ai-input-area input {
+    flex: 1;
+    padding: 14px 16px;
+    border: 1px solid #ccdadd;
+    border-radius: 7px;
+    font-size: 16px;
+    outline: none;
+}
+
+.ai-input-area input:focus {
+    border-color: #087fc1;
+}
+
+.ai-input-area button {
+    padding: 0 25px;
+    border: none;
+    border-radius: 7px;
+    background: #087fc1;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.25s;
+}
+
+.ai-input-area button:hover {
+    background: #05679d;
+}
+
+.ai-disclaimer {
+    padding: 12px 18px;
+    background: #fff8df;
+    border-top: 1px solid #eee2ad;
+    color: #666;
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+
+/* AI НА ТЕЛЕФОНЕ */
+
+@media (max-width: 600px) {
+
+    .ai-section {
+        padding: 50px 0;
+    }
+
+    .ai-chat {
+        width: 100%;
+    }
+
+    .ai-messages {
+        height: 350px;
+    }
+
+    .ai-message {
+        max-width: 90%;
+    }
+
+    .ai-input-area {
+        flex-direction: column;
+    }
+
+    .ai-input-area input {
+        width: 100%;
+    }
+
+    .ai-input-area button {
+        height: 45px;
+    }
+
+}
