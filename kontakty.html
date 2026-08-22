@@ -25,6 +25,37 @@
             <a href="kontakty.html" class="active">Контакти</a>
         </nav>
     </div>
+    <script>
+const themeToggle = document.getElementById("themeToggle");
+const savedTheme = localStorage.getItem("theme");
+
+if (savedTheme === "dark") {
+    document.body.classList.add("dark-mode");
+    themeToggle.textContent = "☀️";
+}
+
+themeToggle.addEventListener("click", () => {
+    document.body.classList.toggle("dark-mode");
+    const dark = document.body.classList.contains("dark-mode");
+    localStorage.setItem("theme", dark ? "dark" : "light");
+    themeToggle.textContent = dark ? "☀️" : "🌙";
+});
+
+const cookieBanner = document.getElementById("cookieBanner");
+const cookieChoice = localStorage.getItem("cookieChoice");
+
+if (cookieChoice) cookieBanner.classList.add("hidden");
+
+document.getElementById("acceptCookies").addEventListener("click", () => {
+    localStorage.setItem("cookieChoice", "accepted");
+    cookieBanner.classList.add("hidden");
+});
+
+document.getElementById("rejectCookies").addEventListener("click", () => {
+    localStorage.setItem("cookieChoice", "rejected");
+    cookieBanner.classList.add("hidden");
+});
+</script>
 </header>
 
 <section class="page-header">

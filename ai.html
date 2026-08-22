@@ -11,86 +11,166 @@
 
 <body>
 
-<header>
-
+<header class="site-header">
     <div class="container header">
 
-        <div class="logo">
-
+        <a href="index.html" class="logo">
             <div class="logo-icon">⚕</div>
 
             <div>
                 <h1>Урологічний кабінет</h1>
                 <p>лікаря Супруненка</p>
             </div>
-
-        </div>
-
+        </a>
 
         <nav>
-
             <a href="index.html">Головна</a>
-
             <a href="ceny.html">Ціни</a>
-
             <a href="fotogalereya.html">Фотогалерея</a>
-
             <a href="vidguky.html">Відгуки</a>
-
             <a href="kontakty.html">Контакти</a>
 
-            <a href="ai.html" class="ai-button">🤖 ІІ-помічник</a>
+            <a href="ai.html" class="ai-button active">
+                🤖 ІІ-помічник
+            </a>
 
-            <a href="zapis.html" class="appointment-button">📅 Запис</a>
-
+            <a href="zapis.html" class="appointment-button">
+                📅 Запис
+            </a>
         </nav>
 
-    </div>
+        <button class="mobile-menu" id="mobileMenu">
+            ☰
+        </button>
 
+    </div>
 </header>
 
+
+<main>
 
 <section class="ai-section">
 
     <div class="container">
 
-        <h2 class="section-title">
-            🤖 ІІ-помічник уролога
-        </h2>
+        <div class="ai-intro">
 
-        <p class="center-text">
-            Опишіть своє питання, і помічник допоможе зорієнтуватися.
-        </p>
+            <div class="robot-big">
+                🤖
+            </div>
+
+            <div>
+                <h2 class="section-title">
+                    ІІ-помічник уролога
+                </h2>
+
+                <p class="center-text">
+                    Опишіть своє питання — помічник допоможе зорієнтуватися
+                    та надасть загальну інформацію.
+                </p>
+            </div>
+
+        </div>
 
 
         <div class="ai-chat">
 
             <div class="ai-chat-header">
 
-                <div class="ai-chat-icon">
+                <div class="ai-chat-avatar">
                     🤖
                 </div>
 
-                <div>
-
+                <div class="ai-chat-info">
                     <h3>ІІ-помічник</h3>
 
                     <p>
-                        Інформаційний помічник
+                        <span class="online-dot"></span>
+                        Онлайн
                     </p>
+                </div>
+
+                <button
+                    class="clear-button"
+                    id="clearChat"
+                    title="Очистити чат"
+                >
+                    🗑️
+                </button>
+
+            </div>
+
+
+            <div class="quick-questions">
+
+                <button onclick="quickQuestion('Що таке цистит?')">
+                    🩺 Що таке цистит?
+                </button>
+
+                <button onclick="quickQuestion('Що таке простатит?')">
+                    🔬 Простатит
+                </button>
+
+                <button onclick="quickQuestion('Коли потрібно робити УЗД?')">
+                    📋 УЗД
+                </button>
+
+                <button onclick="quickQuestion('Як записатися на прийом?')">
+                    📅 Запис
+                </button>
+
+            </div>
+
+
+            <div
+                class="ai-messages"
+                id="aiMessages"
+            >
+
+                <div class="message-row bot-row">
+
+                    <div class="message-avatar">
+                        🤖
+                    </div>
+
+                    <div class="ai-message bot-message">
+
+                        <div class="message-name">
+                            ІІ-помічник
+                        </div>
+
+                        <div>
+                            Вітаю! 👋<br><br>
+
+                            Я інформаційний ІІ-помічник урологічного
+                            кабінету лікаря Супруненка.
+                            <br><br>
+
+                            Я можу розповісти про урологічні симптоми,
+                            обстеження, УЗД, аналізи, підготовку до
+                            прийому та допомогти знайти інформацію
+                            про запис.
+                            <br><br>
+
+                            Напишіть своє питання нижче 👇
+                        </div>
+
+                    </div>
 
                 </div>
 
             </div>
 
 
-            <div class="ai-messages" id="aiMessages">
+            <div
+                class="typing"
+                id="typing"
+            >
+                <span></span>
+                <span></span>
+                <span></span>
 
-                <div class="ai-message">
-                    Вітаю! 👋 Я ІІ-помічник урологічного кабінету.
-                    Напишіть своє питання.
-                </div>
-
+                <label>Помічник друкує...</label>
             </div>
 
 
@@ -99,11 +179,16 @@
                 <input
                     type="text"
                     id="aiInput"
+                    autocomplete="off"
                     placeholder="Напишіть своє питання..."
                 >
 
-                <button onclick="sendMessage()">
-                    Надіслати
+                <button
+                    id="sendButton"
+                    onclick="sendMessage()"
+                >
+                    <span>Надіслати</span>
+                    <b>➤</b>
                 </button>
 
             </div>
@@ -111,8 +196,14 @@
 
             <div class="ai-disclaimer">
 
-                ⚠️ ІІ-помічник надає лише загальну інформацію
-                та не замінює консультацію лікаря.
+                <span>⚠️</span>
+
+                <div>
+                    <strong>Важливо:</strong>
+                    ІІ-помічник надає лише загальну інформацію
+                    та не встановлює діагноз. При появі симптомів
+                    або погіршенні самопочуття зверніться до лікаря.
+                </div>
 
             </div>
 
@@ -123,17 +214,80 @@
 </section>
 
 
-<footer>
+<section class="info-section">
 
     <div class="container">
 
-        <p>
-            © 2026 Урологічний кабінет лікаря Супруненка
-        </p>
+        <h2>Що може ІІ-помічник?</h2>
 
-        <p>
-            м. Полтава, вул. Чорновола 2Б
-        </p>
+        <div class="info-grid">
+
+            <div class="info-card">
+                <div>🩺</div>
+                <h3>Симптоми</h3>
+                <p>
+                    Загальна інформація про поширені
+                    урологічні симптоми.
+                </p>
+            </div>
+
+            <div class="info-card">
+                <div>🔬</div>
+                <h3>Обстеження</h3>
+                <p>
+                    Інформація про аналізи, УЗД
+                    та інші обстеження.
+                </p>
+            </div>
+
+            <div class="info-card">
+                <div>📋</div>
+                <h3>Підготовка</h3>
+                <p>
+                    Загальні рекомендації щодо
+                    підготовки до консультації.
+                </p>
+            </div>
+
+            <div class="info-card">
+                <div>📅</div>
+                <h3>Запис</h3>
+                <p>
+                    Допомога з переходом на сторінку
+                    запису до лікаря.
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+</main>
+
+
+<footer>
+
+    <div class="container footer-content">
+
+        <div>
+            <h3>Урологічний кабінет</h3>
+
+            <p>
+                лікаря Супруненка
+            </p>
+        </div>
+
+        <div>
+            <p>
+                📍 м. Полтава, вул. Чорновола 2Б
+            </p>
+
+            <p>
+                © 2026 Урологічний кабінет
+            </p>
+        </div>
 
     </div>
 
@@ -142,10 +296,521 @@
 
 <script>
 
-function sendMessage() {
+/* =========================================
+   ІІ-ПОМІЧНИК
+========================================= */
 
-    const input = document.getElementById("aiInput");
-    const messages = document.getElementById("aiMessages");
+const input = document.getElementById("aiInput");
+const messages = document.getElementById("aiMessages");
+const sendButton = document.getElementById("sendButton");
+const typing = document.getElementById("typing");
+const clearChatButton = document.getElementById("clearChat");
+
+
+/* =========================================
+   БАЗА ВІДПОВІДЕЙ
+========================================= */
+
+function getBotAnswer(question) {
+
+    const text = question.toLowerCase().trim();
+
+
+    /* ВІТАННЯ */
+
+    if (
+        text.includes("привіт") ||
+        text.includes("вітаю") ||
+        text.includes("добрий день") ||
+        text.includes("добрий вечір") ||
+        text.includes("доброго дня") ||
+        text === "хай" ||
+        text === "hello"
+    ) {
+
+        return `
+            Вітаю! 👋<br><br>
+
+            Я ІІ-помічник урологічного кабінету.
+            <br><br>
+
+            Можете запитати мене про урологічні симптоми,
+            цистит, простатит, УЗД, аналізи або запис
+            на консультацію.
+        `;
+    }
+
+
+    /* ЦИСТИТ */
+
+    if (
+        text.includes("цистит") ||
+        text.includes("сечовий міхур") ||
+        text.includes("печіння при сечовипусканні") ||
+        text.includes("печет при мочеиспускании")
+    ) {
+
+        return `
+            🩺 <strong>Про цистит</strong><br><br>
+
+            Цистит — це запалення сечового міхура.
+            Частими симптомами можуть бути часте
+            сечовипускання, дискомфорт або печіння
+            під час сечовипускання та біль у нижній
+            частині живота.
+            <br><br>
+
+            Причини можуть бути різними, тому за
+            наявності симптомів бажано звернутися
+            до лікаря для правильної оцінки стану.
+            <br><br>
+
+            ⚠️ Не варто самостійно починати прийом
+            антибіотиків без рекомендації лікаря.
+        `;
+    }
+
+
+    /* ПРОСТАТИТ */
+
+    if (
+        text.includes("простатит") ||
+        text.includes("простата") ||
+        text.includes("передміхурова")
+    ) {
+
+        return `
+            🔬 <strong>Про простатит</strong><br><br>
+
+            Простатит — це запальний стан передміхурової
+            залози. Симптоми можуть включати дискомфорт
+            у ділянці таза, зміни сечовипускання або
+            біль.
+            <br><br>
+
+            Причини та перебіг можуть бути різними,
+            тому для встановлення причини необхідна
+            консультація лікаря та, за потреби,
+            додаткові обстеження.
+        `;
+    }
+
+
+    /* УЗД */
+
+    if (
+        text.includes("узд") ||
+        text.includes("ультразвук") ||
+        text.includes("ультразвуков")
+    ) {
+
+        return `
+            🔎 <strong>УЗД в урології</strong><br><br>
+
+            Ультразвукове дослідження може допомогти
+            лікарю оцінити стан нирок, сечового міхура
+            та інших органів залежно від виду дослідження.
+            <br><br>
+
+            Необхідність УЗД визначає лікар залежно
+            від скарг та результатів огляду.
+            <br><br>
+
+            Якщо хочете пройти обстеження, можете
+            перейти на сторінку запису:
+            <br><br>
+
+            <a href="zapis.html" class="bot-link">
+                📅 Перейти до запису
+            </a>
+        `;
+    }
+
+
+    /* АНАЛІЗИ */
+
+    if (
+        text.includes("аналіз") ||
+        text.includes("анализ") ||
+        text.includes("сеча") ||
+        text.includes("кров")
+    ) {
+
+        return `
+            🧪 <strong>Аналізи</strong><br><br>
+
+            При урологічних скаргах лікар може
+            рекомендувати різні лабораторні дослідження.
+            Конкретний перелік залежить від симптомів,
+            віку та результатів огляду.
+            <br><br>
+
+            Не всі аналізи потрібно робити заздалегідь —
+            краще уточнити це під час консультації.
+        `;
+    }
+
+
+    /* БІЛЬ */
+
+    if (
+        text.includes("болить") ||
+        text.includes("біль") ||
+        text.includes("боли") ||
+        text.includes("болит")
+    ) {
+
+        return `
+            ⚠️ <strong>Якщо виник біль</strong><br><br>
+
+            Біль у ділянці живота, попереку, таза або
+            під час сечовипускання може мати різні причини.
+            За одним симптомом неможливо встановити
+            точний діагноз.
+            <br><br>
+
+            Якщо біль сильний, раптовий або швидко
+            посилюється, необхідно звернутися за
+            медичною допомогою.
+            <br><br>
+
+            Для планової оцінки симптомів можна
+            записатися на консультацію.
+        `;
+    }
+
+
+    /* КРОВ У СЕЧІ */
+
+    if (
+        text.includes("кров у сечі") ||
+        text.includes("кровь в моче") ||
+        text.includes("кров сеч")
+    ) {
+
+        return `
+            🚨 <strong>Кров у сечі</strong><br><br>
+
+            Поява крові в сечі потребує медичної оцінки,
+            навіть якщо її небагато або симптом швидко
+            зник.
+            <br><br>
+
+            Причини можуть бути різними, тому не варто
+            намагатися визначити їх самостійно.
+            <br><br>
+
+            Якщо крові багато, є сильний біль,
+            слабкість або інші гострі симптоми —
+            зверніться за невідкладною медичною допомогою.
+        `;
+    }
+
+
+    /* ТЕМПЕРАТУРА */
+
+    if (
+        text.includes("температура") ||
+        text.includes("температур") ||
+        text.includes("жар") ||
+        text.includes("лихоман")
+    ) {
+
+        return `
+            🌡️ <strong>Підвищена температура</strong><br><br>
+
+            Підвищення температури разом із болем,
+            проблемами із сечовипусканням або іншими
+            симптомами може потребувати швидкої
+            медичної оцінки.
+            <br><br>
+
+            Якщо температура висока або стан
+            погіршується, не відкладайте звернення
+            за медичною допомогою.
+        `;
+    }
+
+
+    /* НИРКИ */
+
+    if (
+        text.includes("нирк") ||
+        text.includes("почка") ||
+        text.includes("почки") ||
+        text.includes("поперек")
+    ) {
+
+        return `
+            🫘 <strong>Нирки та біль у попереку</strong><br><br>
+
+            Дискомфорт або біль у ділянці попереку
+            може мати багато причин і не завжди
+            пов'язаний саме з нирками.
+            <br><br>
+
+            При повторному або сильному болю,
+            температурі, змінах сечі чи проблемах
+            із сечовипусканням бажано звернутися
+            до лікаря.
+        `;
+    }
+
+
+    /* СЕЧОВИПУСКАННЯ */
+
+    if (
+        text.includes("часто ходжу") ||
+        text.includes("часте сечовипускання") ||
+        text.includes("часто мочусь") ||
+        text.includes("часто бігаю в туалет") ||
+        text.includes("частое мочеиспускание")
+    ) {
+
+        return `
+            🚻 <strong>Часте сечовипускання</strong><br><br>
+
+            Часте сечовипускання може мати різні причини:
+            від великої кількості рідини або кофеїну
+            до урологічних проблем.
+            <br><br>
+
+            Якщо це новий симптом, він триває довго
+            або супроводжується болем, печінням,
+            температурою чи змінами сечі — варто
+            звернутися до лікаря.
+        `;
+    }
+
+
+    /* ЧОЛОВІЧЕ ЗДОРОВ'Я */
+
+    if (
+        text.includes("чоловіч") ||
+        text.includes("чоловік") ||
+        text.includes("ерекц") ||
+        text.includes("потенц")
+    ) {
+
+        return `
+            👨‍⚕️ <strong>Чоловіче урологічне здоров'я</strong><br><br>
+
+            Порушення сечовипускання, біль, зміни
+            статевої функції та інші симптоми можуть
+            мати різні причини.
+            <br><br>
+
+            Для визначення причини потрібна
+            індивідуальна консультація лікаря.
+            <br><br>
+
+            Я можу допомогти зорієнтуватися
+            в загальній інформації або перейти
+            до сторінки запису.
+        `;
+    }
+
+
+    /* ЦІНИ */
+
+    if (
+        text.includes("ціна") ||
+        text.includes("ціни") ||
+        text.includes("вартість") ||
+        text.includes("скільки коштує") ||
+        text.includes("стоимость") ||
+        text.includes("прайс")
+    ) {
+
+        return `
+            💰 <strong>Ціни</strong><br><br>
+
+            Актуальний перелік послуг та їх вартість
+            можна переглянути на сторінці:
+            <br><br>
+
+            <a href="ceny.html" class="bot-link">
+                💰 Переглянути ціни
+            </a>
+        `;
+    }
+
+
+    /* ЗАПИС */
+
+    if (
+        text.includes("запис") ||
+        text.includes("записатися") ||
+        text.includes("записатись") ||
+        text.includes("прийом") ||
+        text.includes("приём") ||
+        text.includes("записаться")
+    ) {
+
+        return `
+            📅 <strong>Запис на консультацію</strong><br><br>
+
+            Щоб перейти до сторінки запису,
+            натисніть кнопку нижче:
+            <br><br>
+
+            <a href="zapis.html" class="bot-link">
+                📅 Перейти до запису
+            </a>
+        `;
+    }
+
+
+    /* КОНТАКТИ */
+
+    if (
+        text.includes("адрес") ||
+        text.includes("де ви") ||
+        text.includes("де знаход") ||
+        text.includes("контакт") ||
+        text.includes("телефон") ||
+        text.includes("де прийма")
+    ) {
+
+        return `
+            📍 <strong>Контакти</strong><br><br>
+
+            Урологічний кабінет лікаря Супруненка
+            <br><br>
+
+            📍 м. Полтава, вул. Чорновола 2Б
+            <br><br>
+
+            Детальну інформацію можна переглянути
+            на сторінці контактів:
+            <br><br>
+
+            <a href="kontakty.html" class="bot-link">
+                📍 Переглянути контакти
+            </a>
+        `;
+    }
+
+
+    /* ФОТО */
+
+    if (
+        text.includes("фото") ||
+        text.includes("кабінет") ||
+        text.includes("фотогалере")
+    ) {
+
+        return `
+            📸 <strong>Фотогалерея</strong><br><br>
+
+            Переглянути фотографії кабінету
+            можна на сторінці фотогалереї:
+            <br><br>
+
+            <a href="fotogalereya.html" class="bot-link">
+                📸 Відкрити фотогалерею
+            </a>
+        `;
+    }
+
+
+    /* ВІДГУКИ */
+
+    if (
+        text.includes("відгук") ||
+        text.includes("отзыв") ||
+        text.includes("відгуки")
+    ) {
+
+        return `
+            ⭐ <strong>Відгуки</strong><br><br>
+
+            Відгуки пацієнтів можна переглянути
+            на відповідній сторінці сайту.
+            <br><br>
+
+            <a href="vidguky.html" class="bot-link">
+                ⭐ Переглянути відгуки
+            </a>
+        `;
+    }
+
+
+    /* ДЯКУЮ */
+
+    if (
+        text.includes("дякую") ||
+        text.includes("спасибі") ||
+        text.includes("спасибо") ||
+        text.includes("дякую вам")
+    ) {
+
+        return `
+            Будь ласка! 😊<br><br>
+
+            Якщо у вас залишилися питання,
+            можете написати їх тут.
+        `;
+    }
+
+
+    /* ПОПЕРЕДЖЕННЯ */
+
+    if (
+        text.includes("терміново") ||
+        text.includes("срочно") ||
+        text.includes("швидка") ||
+        text.includes("швидку") ||
+        text.includes("не можу помочитися")
+    ) {
+
+        return `
+            🚨 <strong>Важливо</strong><br><br>
+
+            Якщо ви не можете нормально помочитися,
+            маєте сильний або раптовий біль,
+            значну кровотечу, високу температуру
+            або різке погіршення стану —
+            не покладайтеся на онлайн-помічника.
+            <br><br>
+
+            У такій ситуації необхідно звернутися
+            за невідкладною медичною допомогою.
+        `;
+    }
+
+
+    /* ЗАГАЛЬНА ВІДПОВІДЬ */
+
+    return `
+        Я можу допомогти зорієнтуватися
+        в загальних питаннях урології. 🤖
+        <br><br>
+
+        Спробуйте запитати, наприклад:
+        <br><br>
+
+        • Що таке цистит?<br>
+        • Що таке простатит?<br>
+        • Коли потрібно робити УЗД?<br>
+        • Які бувають аналізи?<br>
+        • У мене болить поперек<br>
+        • Як записатися до лікаря?<br>
+        • Де знаходиться кабінет?<br>
+        • Скільки коштує консультація?
+        <br><br>
+
+        ⚠️ Я не встановлюю діагнозів і не замінюю
+        консультацію лікаря.
+    `;
+}
+
+
+/* =========================================
+   ВІДПРАВКА ПОВІДОМЛЕННЯ
+========================================= */
+
+function sendMessage() {
 
     const text = input.value.trim();
 
@@ -153,42 +818,219 @@ function sendMessage() {
         return;
     }
 
-
-    /* Повідомлення користувача */
-
-    const userMessage = document.createElement("div");
-
-    userMessage.className = "ai-message user";
-
-    userMessage.textContent = text;
-
-    messages.appendChild(userMessage);
-
+    addUserMessage(text);
 
     input.value = "";
 
+    input.disabled = true;
+    sendButton.disabled = true;
 
-    /* Відповідь */
+    typing.classList.add("show");
 
-    setTimeout(function() {
+    messages.scrollTop = messages.scrollHeight;
 
-        const aiMessage = document.createElement("div");
 
-        aiMessage.className = "ai-message";
+    const delay = 700 + Math.random() * 700;
 
-        aiMessage.textContent =
-            "Дякую за ваше питання. Я можу надати лише загальну інформацію. Для точної оцінки стану здоров’я рекомендується звернутися до лікаря-уролога.";
 
-        messages.appendChild(aiMessage);
+    setTimeout(() => {
 
-        messages.scrollTop = messages.scrollHeight;
+        typing.classList.remove("show");
 
-    }, 600);
+        addBotMessage(
+            getBotAnswer(text)
+        );
+
+        input.disabled = false;
+        sendButton.disabled = false;
+
+        input.focus();
+
+    }, delay);
+}
+
+
+/* =========================================
+   ПОВІДОМЛЕННЯ КОРИСТУВАЧА
+========================================= */
+
+function addUserMessage(text) {
+
+    const row = document.createElement("div");
+
+    row.className = "message-row user-row";
+
+
+    const message = document.createElement("div");
+
+    message.className = "ai-message user-message";
+
+
+    const name = document.createElement("div");
+
+    name.className = "message-name";
+
+    name.textContent = "Ви";
+
+
+    const content = document.createElement("div");
+
+    content.textContent = text;
+
+
+    message.appendChild(name);
+    message.appendChild(content);
+
+    row.appendChild(message);
+
+    messages.appendChild(row);
+
+
+    messages.scrollTop = messages.scrollHeight;
+}
+
+
+/* =========================================
+   ПОВІДОМЛЕННЯ БОТА
+========================================= */
+
+function addBotMessage(text) {
+
+    const row = document.createElement("div");
+
+    row.className = "message-row bot-row";
+
+
+    const avatar = document.createElement("div");
+
+    avatar.className = "message-avatar";
+
+    avatar.textContent = "🤖";
+
+
+    const message = document.createElement("div");
+
+    message.className = "ai-message bot-message";
+
+
+    const name = document.createElement("div");
+
+    name.className = "message-name";
+
+    name.textContent = "ІІ-помічник";
+
+
+    const content = document.createElement("div");
+
+    content.innerHTML = text;
+
+
+    message.appendChild(name);
+    message.appendChild(content);
+
+    row.appendChild(avatar);
+    row.appendChild(message);
+
+    messages.appendChild(row);
+
+
+    messages.scrollTop = messages.scrollHeight;
+}
+
+
+/* =========================================
+   ШВИДКІ ПИТАННЯ
+========================================= */
+
+function quickQuestion(question) {
+
+    input.value = question;
+
+    sendMessage();
+
+}
+
+
+/* =========================================
+   ENTER
+========================================= */
+
+input.addEventListener("keydown", function(event) {
+
+    if (event.key === "Enter") {
+
+        event.preventDefault();
+
+        sendMessage();
+
+    }
+
+});
+
+
+/* =========================================
+   ОЧИЩЕННЯ ЧАТУ
+========================================= */
+
+clearChatButton.addEventListener("click", function() {
+
+    messages.innerHTML = `
+
+        <div class="message-row bot-row">
+
+            <div class="message-avatar">
+                🤖
+            </div>
+
+            <div class="ai-message bot-message">
+
+                <div class="message-name">
+                    ІІ-помічник
+                </div>
+
+                <div>
+                    Чат очищено. 🧹<br><br>
+
+                    Напишіть своє питання, і я спробую
+                    допомогти вам зорієнтуватися.
+                </div>
+
+            </div>
+
+        </div>
+
+    `;
+
+});
+
+
+/* =========================================
+   МОБІЛЬНЕ МЕНЮ
+========================================= */
+
+const mobileMenu = document.getElementById("mobileMenu");
+const nav = document.querySelector("nav");
+
+mobileMenu.addEventListener("click", function() {
+
+    nav.classList.toggle("mobile-open");
+
+});
+
+
+/* =========================================
+   ТЕМНА ТЕМА
+========================================= */
+
+const savedTheme = localStorage.getItem("theme");
+
+if (savedTheme === "dark") {
+
+    document.body.classList.add("dark-mode");
 
 }
 
 </script>
-
 
 </body>
 </html>
